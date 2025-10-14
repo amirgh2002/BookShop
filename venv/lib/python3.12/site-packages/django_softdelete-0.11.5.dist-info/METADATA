@@ -1,0 +1,12 @@
+Metadata-Version: 2.4
+Name: django-softdelete
+Version: 0.11.5
+Summary: Soft delete support for Django ORM, with undelete.
+Author-email: Steve Coursen <smcoursen@gmail.com>
+Project-URL: Homepage, https://github.com/scoursen/django-softdelete
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: BSD License
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file

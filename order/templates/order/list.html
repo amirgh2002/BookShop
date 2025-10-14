@@ -1,0 +1,72 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block container %}
+<div class="cart_info">
+    <table class="table table-hover">
+        <thead class="text-center">
+            <tr>
+                <th scope="col">ردیف</th>
+                <th scope="col">شناسه سفارش</th>
+                <th scope="col">مبلغ</th>
+                <th scope="col">تعداد</th>
+                <th scope="col">وضعیت</th>
+                <th scope="col">تاریخ</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            {% for morder in myorder %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td><a href="{% url 'order:order_details' id=morder.id %}">#{{ morder.id }}</a></td>
+                <td>{{ morder.payable }} تومان</td>
+                <td>{{ morder.totalbook }}</td>
+                <td class="text-center">
+                    {% if morder.paid == True %}
+                    <p class="status3">تایید شده</p>
+                    {% else %}
+                    <p class="status1">در حال پردازش</p>
+                    {% endif %}
+                </td>
+                <td>{{ morder.created }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="d-pagination">
+    <ul class="pagination">
+    {% if myorder.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page=1">ابتدا</a>
+        </li>                               
+        <li class="page-item">
+            <a class="page-link" href="?page={{ myorder.previous_page_number }}">قبلی</a>
+        </li>
+    {% endif %}
+    {% for ord in myorder.paginator.page_range %}
+        {% if myorder.number == ord %}
+            <li class="page-item active">
+                <span class="page-link">{{ ord }}
+                    <span class="sr-only">(صفحه فعلی)</span>
+                </span>
+            </li>
+        {% elif ord > myorder.number|add:'-3' and ord < myorder.number|add:'3' %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ ord }}">{{ ord }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+     {% if myorder.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ myorder.next_page_number }}">بعدی</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="?page={{ myorder.paginator.num_pages }}">انتها</a>
+        </li>
+    {% endif %}
+    </ul>
+</div>
+
+{% endblock %}

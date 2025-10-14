@@ -1,0 +1,99 @@
+{% extends 'store/base.html' %}
+
+{% block container %}
+<div class="row">
+    <div class="col-sm-8">
+        <div class="cart_info">
+            <table class="table table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">محصول</th>
+                        <th scope="col" style="width: 250px">نام کتاب</th>
+                        <th scope="col" style="width: 250px">تعداد</th>
+                        <th scope="col">قیمت کل</th>
+                        <th scope="col">حذف</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                {% for item in cart %}
+                    {% with book=item.book %}
+                     <tr>
+                        <td class="cart_coverpage">
+                            <a href="{{ book.get_absolute_url }}">
+                                <img src="{{ book.coverpage.url }}" alt="جلد کتاب {{ book.name }}">
+                            </a>
+                        </td>
+                        <td>{{ book.name }}</td>
+                        <td class="cart_quantity">
+                            <input type="number" name="qty" value="{{ item.quantity }}" onchange="updateCartItem(this, '{{ book.id }}')" style="width: 50px; text-align: center;">
+                        </td>
+                        <td id="price-{{ book.id }}">{{ item.total_price }} تومان</td>
+                        <td><a href="{% url 'cart:cart_remove' bookid=book.id %}" class="btn btn-danger" title="حذف از سبد"><i class="fa fa-trash-o"></i></a></td>
+                    </tr>
+                    {% endwith %}
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="continue_or_next text-center">
+                <a href="{% url 'store:index' %}" class="btn _to_shope">ادامه خرید</a>
+                <a href="{% url 'order:order_create' %}" class="btn _to_continue">ادامه جهت تسویه حساب</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4" id="cart-summary-container">
+
+    </div>
+</div> 
+{% endblock %}
+
+{% block scripts %}
+	<script type="text/javascript">
+
+	$(document).ready(function(){
+    // تابع خلاصه‌ی سبد خرید را در ابتدا اجرا می‌کند
+    fetchCartSummary();
+}); 
+
+// نام تابع برای وضوح بیشتر تغییر کرد
+function fetchCartSummary(){
+    $.ajax({
+        url: "{% url 'cart:cart_summary' %}", // <-- یک URL تمیز برای این کار در urls.py بسازید
+        type: "GET",
+        success: function(data){
+            // ID کانتینر برای خوانایی بهتر تغییر کرد
+            $("#cart-summary-container").html(data);
+        }
+    });
+}
+
+// این تابع به شکل صحیح و امن بازنویسی شده است
+function updateCartItem(obj, bookId){
+    var quantity = $(obj).val();
+
+    $.ajax({
+        // اصلاح: URL باید ثابت باشد و اطلاعات به عنوان 'data' ارسال شوند
+        url: "{% url 'cart:cart_update' %}", // <-- یک URL تمیز برای این کار در urls.py بسازید
+        type: "GET", // یا "POST" برای امنیت بیشتر
+        data: {
+            'book_id': bookId,
+            'quantity': quantity
+        },
+        success: function(data){
+            // یک ID استاندارد برای سلول قیمت در نظر گرفته شد
+            $("#price-" + bookId).html(data.total_price + " تومان");
+            // پس از موفقیت، خلاصه سبد و تعداد کل آیتم‌ها را به‌روزرسانی کن
+            fetchCartSummary();
+            // این تابع باید در main.js شما وجود داشته باشد
+            if (typeof totalCart === "function") {
+                totalCart();
+            }
+        },
+        error: function(xhr, errmsg, err) {
+            console.log("Error updating cart:", errmsg);
+            // می‌توانید در اینجا یک پیام خطا به کاربر نمایش دهید
+        }
+    });
+}
+
+	</script>
+{% endblock %}

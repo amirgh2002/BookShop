@@ -1,0 +1,18 @@
+{% load customfunction %}
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <h4>خلاصه سبد خرید</h4>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    تعداد کتاب‌ها<span>{{ cart|length }}</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    جمع کل<span>{{ cart.get_total_price }} تومان</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    هزینه ارسال<span>{{ cost|shipping }} تومان</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    مبلغ قابل پرداخت<span>{{ cart.get_total_price|payabletotal}} تومان</span>
+  </li>
+</ul>

@@ -1,0 +1,26 @@
+{% extends 'store/base.html' %}
+{% load static %}
+
+{% block container %}
+<div class="row">
+    <div class="col-md-12 cart_info">
+            <div class="successful-order text-center">
+                <i class="fa fa-check"></i>
+                <h3 class="page-header">از خرید شما متشکریم! سفارش شما با موفقیت ثبت شد.</h3>
+            </div>
+            <div class="ordered-info">
+                <h5>شناسه سفارش: <span>#{{ order.id }}</span></h5>
+                <h5>تعداد کتاب: <span>{{ order.totalbook }}</span></h5>
+                <h5>نام گیرنده: <span>{{ order.name }}</span></h5>
+                <h5>شماره تماس: <span>{{ order.phone }}</span></h5>
+                <h5>ایمیل: <span>{{ order.email }}</span></h5>
+                <h5>شماره حساب: <span>{{ order.account_no }}</span></h5>
+                <h5>روش پرداخت: <span>{{ order.payment_method }}</span></h5>
+                <h5>آدرس ارسال: <span>{{ order.division }}، {{ order.district }}، {{ order.address }} - کد پستی: {{ order.zip_code }}</span></h5>
+            </div>
+            <div class="download-info">
+                <a href="{% url 'order:pdf' id=order.id %}" title="دانلود فاکتور PDF"><i class="fa fa-download" aria-hidden="true"></i></a>
+            </div>
+    </div>
+</div>
+{% endblock %}

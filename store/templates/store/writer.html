@@ -1,0 +1,60 @@
+{% extends 'store/base.html' %}
+{% load static %}
+{% load customfunction %}
+
+{% block container %}
+		<div class="row">
+			<!-- بخش اطلاعات نویسنده -->
+			<div class="col-sm-12">
+				<div class="row">
+					<div class="col-sm-3">
+						<div class="view-details">
+							<img src="{{ wrt.pic.url }}" alt="تصویر {{ wrt.name }}">
+						</div>
+					</div>
+					
+					<div class="col-sm-8">
+						<div class="product-information">
+							<h3>{{ wrt.name }}</h3>
+							<!-- بیوگرافی نویسنده -->
+							<article class="text-justify" style="margin-top:10px;">{{ wrt.bio }}</article>
+						</div>
+					</div>
+				</div>  
+			</div>
+
+			<!-- بخش کتاب‌های منتشر شده -->
+			<div class="col-sm-12">
+				<div class="titleheader">
+					<h3 class="h2header text-center">کتاب‌های منتشر شده</h3>
+				</div>
+				<!-- 
+					مهم: این اسلایدر برای نمایش صحیح در حالت راست‌چین،
+					نیاز به تنظیمات در فایل جاوااسکریپت دارد.
+					باید گزینه rtl: true به تنظیمات آن اضافه شود.
+				-->
+				<div class="regulara sliderzx">
+					{% for item in book %}
+					<div class="book-wrapper text-center">
+						<div class="coverpage">
+							<a href="{% url 'store:book' id=item.id %}">
+								<img src="{{ item.coverpage.url }}" alt="جلد کتاب {{ item.name }}"/>
+							</a>
+						</div>
+						<a href="{% url 'store:book' id=item.id %}">{{ item.name|text_short }}</a>
+						<a href="{% url 'store:writer' id=item.writer.id %}">{{ item.writer }}</a>
+						<div class="rating">
+							{{ item.totalrating|averagerating:item.totalreview }}
+							<span class="totalrating">({{ item.totalreview|add:-1 }})</span>
+						</div>
+						<!-- واحد پول به تومان تغییر یافت و بعد از عدد قرار گرفت -->
+						<p>{{ item.price }} تومان</p>
+						<button class="btn btn-warning" id="addTocart" data-book-id="{{ item.id }}">
+								<i class="fa fa-shopping-cart"></i> افزودن به سبد خرید
+						</button>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+{% endblock %}

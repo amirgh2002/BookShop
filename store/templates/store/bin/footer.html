@@ -1,0 +1,47 @@
+{% load static %}
+<div class="footer">
+	<div class="container">
+		<div class="row">
+			<!-- ستون اطلاعات تماس -->
+			<div class="col-sm-6 col-md-4 col-xs-12 footer_menu">
+				<h3>تماس با ما</h3>
+				<ul>
+					<li class="footer_contact">
+						<i class="fa fa-phone"></i>
+						<!-- شماره تماس با فرمت ایرانی جایگزین شد -->
+						<p>۰۲۱-۱۲۳۴۵۶۷۸</p>
+					</li>
+					<li class="footer_contact">
+						<i class="fa fa-envelope"></i>
+						<p>info@bookstore.com</p>
+					</li>
+					<li class="footer_contact">
+						<i class="fa fa-map-marker"></i>
+						<!-- آدرس با نمونه ایرانی جایگزین شد -->
+						<p>تهران، ایران</p>
+					</li>
+				</ul>
+			</div>
+		 
+			 <!-- ستون منو -->
+			  <div class="col-sm-6 col-md-4 col-xs-12 footer_menu">
+				<h3>دسترسی سریع</h3>
+				<ul>
+					<li class="footer_menu">
+						<!-- آیکون fa-angle-right به fa-angle-left تغییر کرد -->
+						<a href="{% url 'store:books' %}"><i class="fa fa-angle-left"></i>کتاب‌ها</a>
+					</li>
+				</ul>
+			</div>
+			
+			<!-- ستون روش‌های پرداخت -->
+			<div class="col-sm-6 col-md-4 col-xs-12 footer_news">
+				<h3>روش‌های پرداخت</h3>
+				<div class="footer_paymentmethod">
+					<img src="{% static 'images/bkash.png' %}" alt="درگاه پرداخت امن" />
+					<img src="{% static 'images/rocket.png' %}" alt="پرداخت آنلاین" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

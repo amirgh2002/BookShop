@@ -1,0 +1,1419 @@
+/* Pre loader*/
+ .loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 60px;
+    height: 60px;
+    margin: auto;
+}
+.loader div{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    border: 3px solid transparent;
+    border-top: 3px solid #FE980F;
+    border-bottom: 3px solid #FE980F;
+    animation: rot 4s linear infinite;
+    padding: 4px;
+}
+@keyframes rot {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.pre_loader {
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    z-index: 9999;
+}
+
+.gray_bg {
+    background-color: #f4f7f7;
+}
+a:focus {
+  outline: none!important;
+}
+/* search bar */
+.header-top{
+  border-bottom: 1px solid #f5f5f5;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  background: none repeat scroll 0 0 #266e13;
+}
+.search_box{
+    padding: 2px; 
+    background-color: #efefef;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+	position:absolute;
+	width:100%;
+}
+
+.search_box .btn.btn-primary {
+  background:#ffc107 !important;
+  border-color: #ffc107;
+  border: 0 none;
+  border-radius: 0;
+  margin-top: 0;
+  border-radius: 0 5px 5px 0 ;
+}
+
+/*============ Dropdown*/
+.navbar-nav{
+	display: block;
+}
+.navbar-nav li{
+  	display: inline-block;
+}
+.navbar-nav li a{
+	color: #fff;
+	font-size: 18px;
+	text-decoration: none;
+}
+ul.sub-menu {
+	position: absolute;
+	top: 40px;
+	left: 0px;
+  background: none repeat scroll 0 0 #14243a;
+	list-style: none;
+	padding-left: 0px;
+	margin: 0;
+	width: 170px;
+	-webkit-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+	display: none;
+	z-index: 999;
+	border-radius:8px;
+}
+
+.navbar-nav > li:hover > ul.sub-menu{
+  display: block;
+  -webkit-animation: fadeInUp 400ms;
+  -moz-animation: fadeInUp 400ms;
+  -ms-animation: fadeInUp 400ms;
+  -o-animation: fadeInUp 400ms;
+  animation: fadeInUp 400ms;
+}
+
+.dropdown ul.sub-menu li .active{
+  color: #FDB45E;
+  padding-left: 0;
+}
+
+.navbar-nav li ul.sub-menu li{
+  padding: 10px 20px 0 ;
+}
+
+.navbar-nav li ul.sub-menu li:last-child{
+  padding-bottom: 10px;
+}
+.navbar-nav li ul.sub-menu li a:hover{
+    color: #FDB45E;
+	
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل index.html
+ ==========================================
+*/
+
+/* 1. چیدمان عنوان بخش و لینک "مشاهده همه" */
+/* این کد با استفاده از Flexbox، عنوان را در سمت راست و لینک را در سمت چپ قرار می‌دهد. */
+html[dir="rtl"] .titleheader {
+  display: flex;
+  justify-content: space-between; /* کلید اصلی چیدمان */
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/* برای اینکه عنوان در سمت راست بماند */
+html[dir="rtl"] .titleheader .h2header {
+    text-align: right;
+    margin-bottom: 0; /* حذف فاصله پایین عنوان */
+}
+
+/* استایل لینک "مشاهده همه" */
+html[dir="rtl"] .titleheader a {
+    text-align: left;
+}
+
+
+/* 2. چینش ستاره‌های امتیاز کتاب‌ها */
+html[dir="rtl"] .book-wrapper .rating {
+  direction: rtl;
+}
+
+/* 3. منوی دسته‌بندی‌ها */
+/* اگر از slick slider برای منوی دسته‌بندی‌ها استفاده شده، آن هم به rtl:true نیاز دارد.
+   اگر از flexbox استفاده شده، کد زیر جهت آن را معکوس می‌کند. */
+html[dir="rtl"] .responsive.categorymenu {
+    direction: rtl;
+}
+
+/*
+=====================================================
+  راهنمای کامل تغییرات CSS برای راست‌چین‌سازی (RTL)
+=====================================================
+
+در این فایل، نمونه کدهای CSS برای تبدیل یک قالب چپ‌چین (LTR) به راست‌چین (RTL) آمده است.
+کدهای داخل این فایل را کپی نکنید، بلکه از آن به عنوان الگو برای اصلاح کدهای خودتان استفاده کنید.
+*/
+
+
+/* 1. تراز کردن متن (Text Alignment)
+  هرجا text-align: left دیدید، آن را به right تغییر دهید.
+*/
+
+/* حالت اصلی (LTR) */
+.header-title, .product-description {
+  text-align: left;
+}
+
+/* حالت راست‌چین (RTL) */
+.header-title, .product-description {
+  text-align: right;
+}
+
+
+/* 2. شناورسازی عناصر (Floating Elements)
+  مقادیر float باید کاملاً برعکس شوند.
+*/
+
+/* حالت اصلی (LTR) */
+.sidebar {
+  float: left;
+}
+.main-content {
+  float: right;
+}
+
+/* حالت راست‌چین (RTL) */
+.sidebar {
+  float: right;
+}
+.main-content {
+  float: left;
+}
+
+
+/*
+  3. فاصله‌دهی داخلی و خارجی (Padding & Margin)
+  تمام مقادیر مربوط به left و right باید با یکدیگر جابجا شوند.
+*/
+
+/* 3.1 - ویژگی‌های تکی (Individual Properties) */
+
+/* حالت اصلی (LTR) */
+.element {
+  margin-left: 20px;
+  padding-right: 10px;
+}
+
+/* حالت راست‌چین (RTL) */
+.element {
+  margin-right: 20px;  /* <-- جایگزین margin-left */
+  padding-left: 10px;   /* <-- جایگزین padding-right */
+}
+
+
+/* 3.2 - حالت خلاصه‌نویسی (Shorthand Properties) */
+/* ترتیب مقادیر: top, right, bottom, left */
+
+/* حالت اصلی (LTR) */
+.box {
+  /* top: 5px, right: 10px, bottom: 15px, left: 20px */
+  padding: 5px 10px 15px 20px;
+}
+
+/* حالت راست‌چین (RTL) - مقادیر right و left جابجا می‌شوند */
+.box {
+  /* top: 5px, right: 20px, bottom: 15px, left: 10px */
+  padding: 5px 20px 15px 10px;
+}
+
+
+/*
+  4. موقعیت‌دهی عناصر (Positioning)
+  ویژگی‌های موقعیت‌دهی left و right باید جابجا شوند.
+*/
+
+/* حالت اصلی (LTR) */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
+
+/* حالت راست‌چین (RTL) */
+.dropdown-menu {
+  position: absolute;
+  top: 40px;
+  right: 0; /* <-- جایگزین left */
+  left: auto; /* <-- برای اطمینان از حذف مقدار قبلی */
+}
+
+
+/*
+  5. خطوط و گوشه‌های گرد (Borders & Border-Radius)
+  این ویژگی‌ها نیز باید معکوس شوند.
+*/
+
+/* حالت اصلی (LTR) */
+.menu-item {
+  border-left: 3px solid #007bff;
+}
+.card {
+  /* top-left, top-right, bottom-right, bottom-left */
+  border-radius: 10px 0 0 10px;
+}
+
+
+/* حالت راست‌چین (RTL) */
+.menu-item {
+  border-right: 3px solid #007bff; /* <-- جایگزین border-left */
+}
+.card {
+  /* مقادیر گوشه‌ها معکوس می‌شوند */
+  border-radius: 0 10px 10px 0;
+}
+
+
+/*
+=====================================================
+  توصیه حرفه‌ای: استفاده از CSS Logical Properties
+=====================================================
+به جای استفاده از left/right، بهتر است از properties منطقی استفاده کنید.
+این ویژگی‌ها به صورت خودکار با توجه به dir="rtl" یا dir="ltr" تنظیم می‌شوند و کد شما را تمیزتر می‌کنند.
+
+  margin-left   -> margin-inline-start
+  margin-right  -> margin-inline-end
+  padding-left  -> padding-inline-start
+  padding-right -> padding-inline-end
+  border-left   -> border-inline-start
+  border-right  -> border-inline-end
+  left          -> inset-inline-start
+  right         -> inset-inline-end
+  text-align:left -> text-align:start
+*/
+
+/* مثال با رویکرد مدرن */
+.modern-element {
+  text-align: start; /* به جای left/right */
+  padding-inline-start: 20px; /* معادل padding-left در LTR و padding-right در RTL */
+  border-inline-end: 1px solid #eee; /* معادل border-right در LTR و border-left در RTL */
+}
+
+/*
+ ========================================
+  تغییرات CSS برای فایل header.html
+ ========================================
+*/
+
+/* 1. معکوس کردن کلاس‌های .pull-left و .pull-right */
+/* در حالت RTL، عملکرد این کلاس‌ها باید برعکس شود. */
+
+html[dir="rtl"] .pull-left {
+  float: right !important;
+}
+
+html[dir="rtl"] .pull-right {
+  float: left !important;
+}
+
+/* 2. منوی کشویی پروفایل کاربری (Dropdown Menu) */
+/* در حالت RTL، زیرمنو باید به سمت چپ باز شود. */
+
+html[dir="rtl"] .profile .sub-menu {
+  left: 0;
+  right: auto; /* مقدار right را از حالت پیش‌فرض خارج می‌کند */
+}
+
+/* 3. استایل لیست منوی بالای صفحه (navbar-nav) */
+/* اگر منوی شما padding سمت چپ داشت، آن را به سمت راست منتقل کنید. */
+
+html[dir="rtl"] .navbar-nav {
+    padding-left: 0; /* حذف فاصله از چپ */
+}
+
+/* 4. تنظیمات کادر جستجو (اختیاری) */
+/* بوت‌استرپ مدرن معمولاً به طور خودکار استایل کادر جستجو را درست می‌کند. */
+/* اما اگر دکمه و کادر متن به هم ریخته بود، از این کدها استفاده کنید. */
+
+html[dir="rtl"] .search_box .form-control {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+html[dir="rtl"] .search_box button {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل book.html
+ ==========================================
+*/
+
+/* 1. تراز کردن ستاره‌های امتیازدهی در فرم */
+/* کلاس text-left که در HTML بود، در حالت RTL باید به text-right تغییر کند. */
+html[dir="rtl"] .rating-stars.text-left {
+  text-align: right !important;
+}
+
+/* 2. چینش ستاره‌ها در فرم از راست به چپ */
+/* این کد باعث می‌شود ستاره‌ها برای انتخاب، از راست به چپ نمایش داده شوند. */
+html[dir="rtl"] #stars {
+  direction: rtl;
+}
+html[dir="rtl"] #stars .star {
+  display: inline-block; /* برای اطمینان از افقی بودن */
+}
+
+/* 3. چیدمان بخش دیدگاه‌های ثبت‌شده */
+/* این کد تصویر پروفایل کاربر را به سمت راست منتقل کرده و متون را در سمت چپ آن قرار می‌دهد. */
+html[dir="rtl"] .card-body img {
+  float: right;
+  margin-left: 15px; /* ایجاد فاصله با متن سمت چپ */
+  margin-right: 0;
+}
+
+/* 4. تراز کردن تاریخ ثبت دیدگاه */
+/* تاریخ در سمت چپ (مقابل تصویر) قرار می‌گیرد. */
+html[dir="rtl"] .given_review_date {
+  text-align: left;
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل category.html
+ ==========================================
+*/
+
+/* 1. چینش ستاره‌های امتیاز از راست به چپ */
+/* این کد باعث می‌شود ستاره‌های امتیاز هر کتاب که توسط Django-filter ساخته می‌شوند،
+   از راست به چپ نمایش داده شوند. */
+html[dir="rtl"] .book-wrapper .rating {
+  direction: rtl;
+  display: block; /* برای اطمینان از اعمال direction */
+}
+
+/* برای نمایش صحیح ستاره‌ها (آیکون‌ها) در کنار هم */
+html[dir="rtl"] .book-wrapper .rating i {
+  display: inline-block;
+}
+
+/* 2. استایل قیمت و واحد پول (اختیاری) */
+/* در اکثر مواقع این بخش نیازی به تغییر ندارد، اما برای اطمینان از چیدمان صحیح
+   قیمت و واحد پول (مثلا: ۲۵۰۰۰ تومان) می‌توانید از کد زیر استفاده کنید. */
+html[dir="rtl"] .book-wrapper p {
+    direction: rtl;
+}
+
+/* 3. صفحه‌بندی (Pagination) */
+/* بوت‌استرپ به صورت خودکار صفحه‌بندی را در حالت RTL معکوس می‌کند.
+   اگر این اتفاق نیفتاد، کد زیر می‌تواند کمک کند. */
+html[dir="rtl"] .pagination {
+    flex-direction: row-reverse;
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل login.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن کل محتوای فرم */
+/* این کد تمام متن‌ها، لیبل‌ها و لینک‌های داخل کادر ورود را راست‌چین می‌کند. */
+html[dir="rtl"] .signin-form {
+  text-align: right;
+}
+
+/* 2. اطمینان از راست‌چین بودن لیبل‌ها */
+/* این کد تضمین می‌کند که لیبل‌های 'نام کاربری' و 'رمز عبور' بالای کادر متن
+   و در سمت راست آن قرار بگیرند. */
+html[dir="rtl"] .signin-form .form-group label {
+  display: block; /* برای اینکه لیبل تمام عرض موجود را بگیرد */
+  width: 100%;
+}
+
+
+/* 3. استایل جداکننده (Divider) */
+/* کلاس a-divider-break معمولا برای ایجاد یک خط افقی با متن در وسط آن است.
+   اگر در استایل شما، این خطوط با استفاده از before:: و after:: ساخته شده‌اند،
+   ممکن است نیاز به اصلاح داشته باشند. در غیر این صورت، text-align: right بالا کافی است. */
+
+/* مثال (فقط در صورت نیاز): */
+/*
+html[dir="rtl"] .a-divider-break h5::before {
+  right: auto;
+  left: 0;
+}
+html[dir="rtl"] .a-divider-break h5::after {
+  left: auto;
+  right: 0;
+}
+*/
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل signup.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن کل محتوای فرم ثبت‌نام */
+/* این کد تمام متن‌ها، لیبل‌ها و لینک‌های داخل کادر ثبت‌نام را راست‌چین می‌کند. */
+html[dir="rtl"] .signup-form {
+  text-align: right;
+}
+
+/* 2. استایل فیلدهای فرم */
+/* این کد تضمین می‌کند که لیبل‌ها و پیام‌های خطا در سمت راست فرم نمایش داده شوند. */
+html[dir="rtl"] .signup-form .registration-form label,
+html[dir="rtl"] .signup-form .registration-form p {
+  width: 100%;
+  text-align: right;
+}
+
+/* 3. استایل بخش "قبلاً ثبت‌نام کرده‌اید؟" */
+/* این کد متن و لینک ورود در پایین فرم را راست‌چین می‌کند. */
+html[dir="rtl"] .a-divider-inner .a-row {
+    text-align: right;
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل writer.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن اطلاعات نویسنده */
+/* این کد نام و بیوگرافی نویسنده را راست‌چین می‌کند. */
+html[dir="rtl"] .product-information {
+  text-align: right;
+}
+
+/* 2. چینش ستاره‌های امتیاز کتاب‌ها در اسلایدر */
+/* این کد باعث می‌شود ستاره‌های امتیاز هر کتاب از راست به چپ نمایش داده شوند. */
+html[dir="rtl"] .sliderzx .book-wrapper .rating {
+  direction: rtl;
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل sidebar.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن محتوای آیتم‌های لیست */
+/* این کد تضمین می‌کند که عنوان "دسته‌بندی‌ها" و نام هر دسته‌بندی
+   به درستی در سمت راست قرار بگیرند. */
+html[dir="rtl"] .list-group-item {
+  text-align: right;
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل footer.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن عناوین و لیست‌های فوتر */
+html[dir="rtl"] .footer_menu h3,
+html[dir="rtl"] .footer_news h3,
+html[dir="rtl"] .footer_menu ul {
+  text-align: right;
+}
+
+/* 2. چینش آیکون و متن در بخش "تماس با ما" */
+/* این کد آیکون را به سمت راست متن منتقل می‌کند. */
+html[dir="rtl"] .footer_contact i {
+  float: right;
+  margin-left: 10px; /* ایجاد فاصله با متن سمت چپ */
+  margin-right: 0;
+}
+
+/* 3. چینش آیکون و متن در بخش "منو" */
+/* این کد آیکون فلش را در سمت راست متن قرار می‌دهد. */
+html[dir="rtl"] .footer_menu a i {
+  margin-left: 8px; /* ایجاد فاصله با متن سمت چپ */
+  margin-right: 0;
+}
+
+/* 4. راست‌چین کردن تصاویر روش‌های پرداخت */
+html[dir="rtl"] .footer_paymentmethod {
+    text-align: right;
+}
+
+/*
+ ==========================================
+  تغییرات CSS برای فایل cart.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن تیترهای جدول */
+/* این کد تضمین می‌کند که تیترها با محتوای راست‌چین هماهنگ باشند. */
+html[dir="rtl"] .cart_info th {
+  text-align: right;
+}
+
+/* 2. استایل بهتر برای کادر تعداد */
+html[dir="rtl"] .cart_quantity input {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+/* 3. ایجاد فاصله بین دکمه‌های پایین جدول */
+/* این کد یک فاصله کوچک بین دو دکمه ایجاد می‌کند تا ظاهر بهتری داشته باشند. */
+html[dir="rtl"] ._to_shope {
+    margin-left: 10px;
+}
+/*
+ ==========================================
+  تغییرات CSS برای فایل summary.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن عنوان و آیتم‌های لیست */
+/* این کد تضمین می‌کند که تمام متون داخل کادر خلاصه پرداخت
+   به درستی در سمت راست قرار بگیرند. */
+html[dir="rtl"] .list-group-item h4,
+html[dir="rtl"] .list-group-item {
+  text-align: right;
+}
+
+/* 2. استایل مقدار عددی (اختیاری) */
+/* این کد باعث می‌شود مقادیر عددی کمی برجسته‌تر شوند و جهت نمایش
+   اعداد به درستی (از چپ به راست) تنظیم شود. */
+html[dir="rtl"] .list-group-item span {
+    font-weight: bold;
+    direction: ltr; /* برای نمایش صحیح اعداد و واحد پول */
+    text-align: left; /* برای اطمینان از قرارگیری در سمت چپ */
+}
+/*
+ ==========================================
+  تغییرات CSS برای فایل details.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن تیترهای جدول سفارش */
+html[dir="rtl"] .cart_info thead th {
+  text-align: right;
+}
+
+/* 2. راست‌چین کردن محتوای سلول‌های جدول */
+/* این کد تضمین می‌کند که محتوای هر ردیف، از جمله لینک‌ها و قیمت‌ها، راست‌چین باشد */
+html[dir="rtl"] .cart_info tbody td {
+  text-align: right;
+  vertical-align: middle; /* برای زیبایی بیشتر و تراز عمودی در وسط */
+}
+
+/* 3. راست‌چین کردن محتوای خلاصه سفارش */
+html[dir="rtl"] .list-group-item {
+  text-align: right;
+}
+
+/* 4. استایل بهتر برای مقادیر عددی و تاریخ در خلاصه سفارش */
+html[dir="rtl"] .list-group-item span {
+    font-weight: bold;
+    direction: ltr; /* برای نمایش صحیح اعداد، واحد پول و تاریخ میلادی */
+    text-align: left; /* برای قرارگیری در سمت چپ */
+}
+/*
+ ==========================================
+  تغییرات CSS برای فایل list.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن محتوای جدول سفارشات */
+html[dir="rtl"] .cart_info thead th,
+html[dir="rtl"] .cart_info tbody td {
+  text-align: right;
+  vertical-align: middle; /* برای تراز عمودی بهتر */
+}
+
+/* 2. استایل برای نمایش وضعیت سفارش */
+/* این کدها به وضعیت‌های مختلف، ظاهر بهتری می‌دهند (مانند بج یا نشان) */
+.status1, .status3 {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 15px; /* گوشه‌های گرد */
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* رنگ برای وضعیت "در حال پردازش" (نارنجی) */
+.status1 {
+    background-color: #ff9800;
+}
+
+/* رنگ برای وضعیت "تایید شده" (سبز) */
+.status3 {
+    background-color: #4CAF50;
+}
+
+
+/* 3. صفحه‌بندی (Pagination) */
+/* بوت‌استرپ مدرن معمولاً این را به صورت خودکار انجام می‌دهد،
+   اما این کد برای اطمینان از عملکرد صحیح است. */
+html[dir="rtl"] .pagination {
+    flex-direction: row-reverse;
+}
+/*
+ ==========================================
+  تغییرات CSS برای فایل order.html
+ ==========================================
+*/
+
+/* 1. راست‌چین کردن محتوای کلی فرم و خلاصه پرداخت */
+html[dir="rtl"] .cart_info,
+html[dir="rtl"] .list-group-item {
+  text-align: right;
+}
+
+/* 2. استایل برای فیلدهای Crispy Forms (مخصوصاً Radio Button ها) */
+/* این کد لیبل دکمه‌های رادیویی (روش پرداخت) را به سمت راست منتقل می‌کند. */
+html[dir="rtl"] .form-check {
+    padding-right: 1.25rem; /* ایجاد فاصله برای دکمه رادیویی */
+    padding-left: 0;
+}
+
+html[dir="rtl"] .form-check .form-check-input {
+    float: right;
+    margin-right: -1.25rem; /* انتقال دکمه به موقعیت صحیح */
+}
+
+/* 3. استایل برای لیبل‌های بالای فیلدها */
+html[dir="rtl"] .form-group label {
+    width: 100%; /* اطمینان از اینکه لیبل تمام عرض را می‌گیرد */
+}
+
+/* 4. استایل برای مقادیر عددی در خلاصه پرداخت */
+html[dir="rtl"] .list-group-item span {
+    font-weight: bold;
+    direction: ltr; /* برای نمایش صحیح اعداد و واحد پول */
+    text-align: left;
+}
+/*
+ =========================================================
+  تغییرات CSS برای فایل pdf.html (بسیار مهم برای PDF)
+ =========================================================
+*/
+
+/* قدم 1: تعریف فونت فارسی (مهم‌ترین بخش)
+  یک فونت فارسی مانند Vazirmatn را دانلود کرده و در پوشه static/fonts قرار دهید.
+  سپس با استفاده از @font-face آن را به پروژه معرفی کنید.
+*/
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-VariableFont_wght.ttf') format('truetype'); /* مسیر صحیح فونت را وارد کنید */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* قدم 2: اعمال فونت فارسی به کل سند */
+body {
+    font-family: 'Vazirmatn', sans-serif !important;
+    background-color: #fff; /* پس‌زمینه سفید برای چاپ */
+}
+
+/* قدم 3: راست‌چین کردن و استایل‌دهی به محتوای فاکتور */
+.ordered-info {
+    text-align: right;
+    border: 1px solid #eee;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.ordered-info h2 {
+    border-bottom: 2px solid #f0ad4e; /* رنگ زرد مشابه تم شما */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.ordered-info p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* استایل برای لیبل‌ها (مانند "شناسه سفارش:") */
+.ordered-info p strong {
+    display: inline-block;
+    width: 140px; /* ایجاد یک ستون منظم برای لیبل‌ها */
+    font-weight: bold;
+}
+/*
+ ==========================================
+  تغییرات CSS برای فایل successfull.html
+ ==========================================
+*/
+
+/* 1. استایل بخش پیام موفقیت‌آمیز */
+.successful-order {
+    padding: 40px 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 30px;
+}
+
+.successful-order .fa-check {
+    font-size: 50px;
+    color: #4CAF50; /* رنگ سبز برای موفقیت */
+    border: 2px solid #4CAF50;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 76px;
+    margin-bottom: 20px;
+}
+
+.successful-order .page-header {
+    font-weight: bold;
+    color: #333;
+}
+
+/* 2. راست‌چین کردن و استایل‌دهی به جزئیات سفارش */
+.ordered-info {
+    text-align: right;
+    border: 1px solid #f0f0f0;
+    padding: 25px;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+/* استفاده از Flexbox برای ایجاد ستون‌های منظم */
+.ordered-info h5 {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+    font-size: 16px;
+}
+
+/* استایل برای مقادیر (اعداد، ایمیل و...) */
+.ordered-info h5 span {
+    font-weight: normal;
+    direction: ltr; /* برای نمایش صحیح ایمیل، شماره‌ها و آدرس */
+    text-align: left;
+    color: #555;
+}
+
+/* 3. استایل دکمه دانلود فاکتور */
+.download-info {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 20px;
+}
+
+.download-info a {
+    font-size: 30px;
+    color: #f0ad4e; /* رنگ زرد مشابه تم شما */
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.download-info a:hover {
+    color: #d8962c;
+    text-decoration: none;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+.cart, .profile{
+	background: #14243a;
+	padding: 10px;
+	border-radius: 5px;
+
+}
+.totalcart{
+  color: #fac10a;
+  margin-right:2px;
+}
+/*============ category menu*/
+.header-bottom {
+  padding:0;
+  border-bottom: 1px solid #D5D5D5;
+  border-top: 1px solid #D5D5D5;
+  overflow: hidden;
+  
+}
+.categorymenu{
+  width: 96%;
+  margin: 0px auto;  
+}
+.cat-wrapper{
+  margin-bottom: 12px;
+  margin-top: 11px;
+  cursor:pointer;
+  display: inline-block;
+}
+.cat-wrapper a{
+  font-size:12px !important;
+  color:#111;
+  text-align: center;
+}
+.cat-wrapper a:hover{
+  text-decoration: underline;
+}
+.cat-wrapper img{
+  max-height: 80px;
+  max-width: 80px;
+  display: block;
+  margin: auto;
+}
+/*=========  published books */
+.titleheader {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+
+.titleheader > h3, a{
+  font-family: "Times New Roman", Times, serif;
+  display: inline-block;
+}
+
+
+.sliderzx{
+  width: 94%;
+  margin: 20px auto;
+}
+.book-wrapper{
+  max-width: 250px;
+  margin: 10px;
+  border: 1px solid #efefef;
+  padding: 10px;
+  display: inline-block;
+}
+.book-wrapper .btn{
+  width: 80%;
+  margin: auto;
+}
+.book-wrapper p{
+  color: #B12704;
+}
+.book-wrapper a{
+  display: block;
+  padding-top:5px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0066c0;
+  text-decoration: none;
+  white-space: normal;
+  letter-spacing: normal;
+  font-size: 13px!important;
+  line-height: 19px!important;
+}
+.book-wrapper a i {
+  margin-right: 7px;
+}
+.coverpage img{
+  max-height: 200px;
+  max-width: 150px;
+  margin: auto;
+}
+.totalrating{
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #999;
+  border-radius: 10px;
+  margin-left: 6px;
+}
+.rating span{
+  font-size: 13px;
+}
+.checked {
+    color: orange;
+}
+
+/*===========*/
+.messages{
+  font-size: 13px;
+}
+ul li {
+    list-style: none;
+}
+.list-group li a {
+  color: #111;
+}
+.list-group li a:hover{
+  color: #111;
+  text-decoration: none;
+}
+td a {
+  color: #111!important;
+}
+td a i {
+  color: #fff;
+}
+.card{
+  margin-top: 10px;
+}
+.page-link{
+  color: #111!important;
+}
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff!important;
+    background-color: #fac10a!important;
+    border-color: #ffc107!important;
+}
+.btn-warning, .btn-warning:hover{
+  color: #fff;
+}
+.book-wrapper .btn, .pricebox .btn{
+  padding: 3px
+}
+
+.btn-warning:not(:disabled):not(.disabled).active, .btn-warning:not(:disabled):not(.disabled):active, .show>.btn-warning.dropdown-toggle {
+    color: #fff;
+    background-color: #d39e00;
+    border-color: #c69500;
+}
+/*============= Login */
+
+.registration-form input{
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.signin-form, .signup-form{
+  margin-top:20px;
+  border: 1px solid #B9C8B9;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.signin-form input, .signup-form input{
+  border: 1px solid #a6a6a6;
+  border-top-color: #949494;
+  border-radius: 3px;
+  box-shadow: 0 1px 0 rgba(255,255,255,.5), 0 1px 0 rgba(0,0,0,.07) inset;
+  outline: 0;
+}
+.signin-form h3, .signup-form h3{
+  font-family: "Times New Roman", Times, serif;
+}
+.signin-form a, .signup-form a{
+  text-decoration: none;
+  color: #0066c0;
+}
+.signin-form label, .signup-form label{
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.auth-validate-form button{
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  background: #f0c14b; 
+  margin: 8px 0;
+  border: 1px solid #c19a39;
+}
+.signin-form .btn-default{
+  background: #e7e9ec;
+  border: 1px solid #cfd4da;
+  width: 100%;
+  color: #111;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+
+}   
+.a-divider-break {
+    text-align: center;
+    position: relative;
+    top: 2px;
+    padding-top: 1px;
+    margin-top: 10px;
+    margin-bottom: 14px;
+    line-height: 0;
+}
+.a-divider-break h5 {
+    line-height: 1;
+    font-size: 12px;
+    color: #767676;
+    font-weight: 400;
+    z-index: 2;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 8px 0 7px;
+}
+.a-divider-break:after {
+    content: "";
+    width: 100%;
+    background-color: transparent;
+    display: block;
+    height: 1px;
+    border-top: 1px solid #e7e7e7;
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    z-index: 1;
+}
+/*============ Book Details*/
+.view-details {
+  position: relative;
+  border: 1px solid #F7F7F0;
+  padding:25px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.view-details img {
+  max-height: 250px;
+  transition: all 0.3s ease-in-out;
+}
+
+.grid-item:hover .view-details img{
+    transform: scale(1.3);
+}
+.grid-item:hover{
+    -webkit-transform: scale(1) rotate(360deg);
+    transform: scale(1) rotate(360deg);
+}
+
+div.lookInsideDiv{
+    display:none;
+    width:720px;
+    position:fixed;
+    z-index:99999;
+    top:50%;
+    left:50%;
+    margin-left:-360px;
+    background-color:#fff;
+    padding:40px 50px;
+    margin-top:-255px;
+    -webkit-box-shadow:0 0 7px 1px rgba(0,0,0,.5);
+    -moz-box-shadow:0 0 7px 1px rgba(0,0,0,.5);
+    box-shadow:0 0 7px 1px rgba(0,0,0,.5)
+}
+div.lookInsideDiv> div.exitBtn{
+    float:right;
+    background:url(image/lboximg/close.png) center;
+    padding:14px;
+    margin-top:-10px;
+    margin-right:-38px
+}
+div.lookInsideDiv> div.exitBtn:hover{
+    background-color:#FE980F;
+    cursor:pointer
+}
+div.lookInsideDiv{
+    width:1e3px;
+    margin-left:-500px;
+    height:700px;
+    margin-top:-350px
+}
+div.lookInsideDiv> div.pagesArea{
+    background-color:#a9a9a9;
+    width:100%;
+    padding:5px;
+    height:610px
+}
+
+ul.list-unstyled.pages::-webkit-scrollbar{
+    width:1.5em
+}
+ul.list-unstyled.pages::-webkit-scrollbar-track{
+    -webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3);
+    box-shadow:inset 0 0 6px rgba(0,0,0,.3)
+}
+ul.list-unstyled.pages::-webkit-scrollbar-thumb{
+    background-color:#4f4e4e;
+    outline:1px solid #4f4e4e
+}
+ul.pages{
+    width:100%;
+    height:600px;
+    overflow-y:auto
+}
+ul.pages>li{
+    margin-bottom:15px
+}
+ul.pages>li>img{
+    width:100%
+}
+
+.product-information, .pricebox{
+  border: 1px solid #F7F7F0;
+  padding:25px;
+  margin-top: 10px;
+}
+.product-information h3{
+  font-family: "Times New Roman", Times, serif;
+}
+/*=========== Review Form */
+.rating-stars ul, .review-stars ul {
+  list-style-type:none;
+  padding:0;
+  
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+.rating-stars ul > li.star {
+  display:inline-block;
+  
+}
+
+.rating-stars ul > li.star > i.fa {
+  color:#555;
+}
+
+.rating-stars ul > li.star > i.fa {
+  font-size:20px; 
+}
+
+.rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+.rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
+.card-body img{
+  max-width: 30px;
+}
+.d-pagination{
+  margin-top: 20px;
+}
+/*category*/
+.search_menu{
+  background:#efefef;
+  height:40px;
+  margin-top: 10px;
+  margin-bottom:10px;
+  border-radius:2px;
+}
+.search_menu h4{
+  color:#000;
+  font-size:18px;
+  padding:10px;
+}
+/* cart =================*/
+.cart_info {
+    border: 1px solid #E6E4DF;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.cart_coverpage a img{
+  max-width:75px;
+}
+.cart_quantity{
+  width: 130px;
+}
+.cart_quantity input{
+  height: 30px;
+}
+.btn.btn-primary.bootstrap-touchspin-down, .btn.btn-primary.bootstrap-touchspin-up{
+  background:#dddddd;
+  padding:5px 10px;
+  color:#000;
+  height: 30px;
+  border: 1px solid #ddd;
+  border-radius:2px;
+}
+.continue_or_next{
+  border: 1px solid #E6E4DF;
+  padding-top:15px;
+}
+._to_shope, ._to_continue{
+  background: #4cae4c;
+  background-image: none;
+  border: 0 none;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-size: 15px;
+  margin-bottom: 15px !important;
+  display: inline-block;
+  padding: 9px 16px;
+  font-weight: bold;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+._to_shope:hover, ._to_continue:hover{
+  color:#FFFFFF;
+}
+._to_continue{
+  background: #FEB82F;
+}
+
+/*======= list-order */
+  
+.status1{
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  border-radius: 50px;
+  padding: 8px;
+  margin-bottom: 0;
+}
+.status2{
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: 50px;
+  padding:8px;
+  margin-bottom: 0;
+}
+.status3{
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #faebcc;
+  border-radius: 50px;
+  padding: 8px;
+  margin-bottom: 0;
+}
+/*============ snackbar */
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/*==successful-order= */
+.successful-order{
+  margin-top:30px;
+}
+.successful-order i{
+  font-size: 100px;
+  color: #35d205;
+}
+.ordered-info{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.ordered-info h6, .ordered-info h5{
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+}
+
+.download-info i{
+  font-size: 70px;
+  color: #35d229;
+  margin-bottom: 20px;
+}
+/*============*/
+.footer{
+  background:#232f3e;
+  display: block;
+}
+.footer_about h3, .footer_menu h3, .footer_news h3{
+  font-family: "Times New Roman", Times, serif;
+  color:#ffffff;
+  margin-top: 10px;
+  
+}
+.footer_about ul, .footer_menu ul{
+  padding:0;
+}
+
+.footer_contact i, .footer_menu i{
+  color:#ffffff;
+  margin-right: 10px;
+  display:inline-block;
+  
+}
+.footer_contact p, .footer_menu a{
+  font-size: 14px;
+  color:#ffffff;
+  font-family: Arial, Helvetica, sans-serif;
+  display:inline-block;
+}
+.footer_menu a{
+  text-decoration: none;
+  padding: 5px;
+}
+.footer_paymentmethod{
+  margin-top:20px;
+}
+.footer_bottom{
+  background:#303547;
+}
+.footer_paymentmethod img{
+  height:50px;
+  background:#ffffff
+}
