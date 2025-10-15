@@ -1378,7 +1378,7 @@ ul.pages>li>img{
 }
 /*============*/
 .footer{
-  background:#232f3e;
+  background:#266e13;
   display: block;
 }
 .footer_about h3, .footer_menu h3, .footer_news h3{
@@ -1411,7 +1411,7 @@ ul.pages>li>img{
   margin-top:20px;
 }
 .footer_bottom{
-  background:#303547;
+  background:#266e13;
 }
 .footer_paymentmethod img{
   height:50px;
