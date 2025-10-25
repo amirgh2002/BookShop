@@ -87,16 +87,16 @@ def payment_callback(request):
 	cart = Cart(request)
 
 	try:
-		bank = AZIranianBankGateways(request=request)
+		bank = bankfactories.BankFactory().create()
 		# مبلغ را برای تایید مجدد تنظیم می‌کنیم
 		bank.set_amount(order.payable)
 		bank.set_merchant_code('ZARINPAL')
 
 		# کد رهگیری را از URL می‌خوانیم
-		tracking_code = bank.get_tracking_code_from_request()
+		tracking_code = bank.get_tracking_code_from_request(request)
 
 		# پرداخت را تایید می‌کنیم
-		is_paid, bank_record = bank.verify_payment_view(tracking_code)
+		is_paid, bank_record = bank.verify_payment_view(tracking_code, request)
 
 		if is_paid:
 			# ✅ پرداخت موفق بود!
