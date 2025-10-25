@@ -9,8 +9,8 @@ from .models import Order, OrderItem
 from .forms import OrderCreateForm
 from .pdfcreator import renderPdf
 from django.urls import reverse
-from azbankgateways.apps import AZIranianBankGateways
-import azbankgateways.exceptions as bank_exceptions
+from azbankgateways import bankfactories, models as bank_models, default_settings as settings
+import azbankgateways.exceptions as bank_exceptions # تغییر نام برای جلوگیری از تداخل
 
 def order_create(request):
 	cart = Cart(request)
@@ -40,14 +40,14 @@ def order_create(request):
 				request.session['order_id'] = order.id
 
 				try:
-					bank = AZIranianBankGateways(request=request)
+					bank = bankfactories.BankFactory().create()
 					# نام درگاهی که در settings.py تنظیم کردید
 					bank.set_merchant_code('ZARINPAL') 
 					bank.set_amount(order.payable)
 					# توضیحات پرداخت (در پنل زرین‌پال نمایش داده می‌شود)
 					bank.set_description(f"سفارش شماره #{order.id} از فروشگاه کتاب") 
 					bank.set_mobile_number(order.phone)
-					
+
 					# آدرس بازگشتی که در urls.py ساختیم
 					bank.set_callback_url(reverse('order:payment_callback'))
 					
