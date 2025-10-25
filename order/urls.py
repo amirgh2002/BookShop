@@ -8,4 +8,5 @@ urlpatterns = [
 	path('<int:id>', views.order_details, name="order_details"),
 	path('shipping/', views.order_create, name="order_create"),
 	path('pdf/<int:id>',views.pdf.as_view(), name="pdf"),
+    path('callback/', views.payment_callback, name='payment_callback'),
 ]
